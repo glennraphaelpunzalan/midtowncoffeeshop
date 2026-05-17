@@ -10,40 +10,29 @@
 
     :root {
       /* ── Core Palette ── */
-      --dark-wood:   #1E1208;   /* deepest background */
-      --rich-wood:   #2B1A0A;   /* nav, cards */
-      --warm-wood:   #3D2410;   /* secondary surfaces */
-      --aged-wood:   #5C3820;   /* subtle borders */
       --off-white:   #FAF9F6;   /* lightest background */
       --tail-wind:   #F6F7FA;   /* tail wind */
 
       /* ── Accents ── */
       --gold:        #E9E4D7;   /* primary accent */
-      --gold-light:  #E8A84A;   /* hover/glow */
       --gold-muted:  #8C5830;   /* subdued gold */
       --copper:      #E9E4D7;   /* complementary warm */
       --black:       #0D0804;   /* darkest, for text and details */
 
       /* ── Text & Surfaces ── */
       --cream:       #F5ECD7;   /* primary text on dark */
-      --parchment:   #EDD9B0;   /* secondary text */
-      --fog:         #B8967A;   /* muted text */
-      --mist:        #6B4A30;   /* borders */
       --ink:         #0D0804;   /* darkest */
 
       /* ── Menu (light) ── */
       --menu-bg:     #E9E4D7;
-      --menu-card:   #F5ECD7;
       --menu-border: #E8DCC8;
-      --espresso:    #2C1A0E;
-      --bark:        #8C5E35;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background-color: var(--off-white);
-      color: var(--off-white);
+      color: var(--ink);
       font-family: 'Lato', serif;
       overflow-x: hidden;
     }
@@ -73,8 +62,8 @@
       /* Dark-black gradient border — blends into hero below */
       border-bottom: 1.5px solid transparent;
       box-shadow:
-        0 1px 0 0 rgb(0, 0, 0),
-        0 2px 12px 0 rgba(0, 0, 0, 0.171);
+        0 1px 0 0 rgba(73, 73, 73, 0.322),
+        0 2px 12px 0 rgba(83, 83, 83, 0.171);
     }
 
     .nav-logo {
@@ -118,7 +107,7 @@
       transition: width 0.3s;
     }
 
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover { color: var(--gold); }
     .nav-links a:hover::after { width: 100%; }
 
     /* ── HERO ── */
@@ -142,7 +131,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 80px;
-      background: linear-gradient(to bottom, var(--rich-wood), transparent);
+      background: linear-gradient(to bottom, var(--tail-wind), transparent);
       pointer-events: none;
       z-index: 1;
     }
@@ -204,7 +193,7 @@
     .hero-sub {
       font-family: 'Lato', sans-serif;
       font-size: 1.05rem;
-      color: var(--parchment);
+      color: var(--ink);
       opacity: 0;
       margin-top: 1.5rem;
       max-width: 420px;
@@ -275,7 +264,7 @@
 
     /* ── MENU ── */
     #menu {
-      background: var(--menu-bg);
+      background: var(--off-white);
       position: relative;
       overflow: hidden;
     }
@@ -284,13 +273,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(196,124,43,0.06) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, var(--off-white) 0%, transparent 60%);
       pointer-events: none;
     }
 
-    #menu .section-label { color: var(--gold); }
-    #menu .section-title  { color: var(--espresso); }
-    #menu .section-rule   { background: var(--gold); }
+    #menu .section-label { color: var(--ink); }
+    #menu .section-title  { color: var(--ink); }
+    #menu .section-rule   { background: var(--ink); }
 
     .menu-header {
       max-width: 1100px;
@@ -306,8 +295,8 @@
     }
 
     .menu-category {
-      background: var(--menu-card);
-      border: 1px solid var(--menu-border);
+      background: var(--off-white);
+      border: 1px solid var(--ink);
       border-radius: 16px;
       padding: 2rem;
       position: relative;
@@ -320,13 +309,13 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      background: linear-gradient(90deg, var(--tail-wind), var(--tail-wind) 50%);
       opacity: 0;
       transition: opacity 0.3s;
     }
 
     .menu-category:hover {
-      border-color: rgba(196,124,43,0.35);
+      border-color: var(--gold);
       box-shadow: 0 8px 40px rgba(44,26,14,0.1);
       transform: translateY(-4px);
     }
@@ -338,10 +327,10 @@
     .menu-category h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
-      color: var(--espresso);
+      color: var(--ink);
       margin-bottom: 1.4rem;
       padding-bottom: 0.8rem;
-      border-bottom: 1px solid var(--menu-border);
+      border-bottom: 1px solid var(--tail-wind);
       letter-spacing: 0.02em;
     }
 
@@ -356,12 +345,11 @@
       transition: background 0.2s;
     }
 
-    .menu-item:hover { background: rgba(196,124,43,0.06); }
-
+    .menu-item:hover { background: var(--gold); }
     .menu-item-name {
       font-family: 'Lato', serif;
       font-size: 0.92rem;
-      color: var(--espresso);
+      color: var(--ink);
       font-weight: 500;
     }
 
@@ -369,6 +357,7 @@
       font-size: 0.76rem;
       color: var(--bark);
       margin-top: 0.2rem;
+      color: var(--ink)
     }
 
     .menu-item-price {
@@ -383,7 +372,7 @@
 
     /* ── CONTACT ── */
     #contact {
-      background: var(--rich-wood);
+      background: var(--off-white);
       color: var(--cream);
       position: relative;
       overflow: hidden;
@@ -436,20 +425,21 @@
     .contact-info-block h4 {
       font-family: 'Lato', sans-serif;
       font-size: 1rem;
-      color: var(--gold);
+      color: var(--ink);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 0.4rem;
+      font-weight: 700;
     }
 
     .contact-info-block p {
       font-size: 0.95rem;
-      color: var(--parchment);
+      color: var(--ink);
       line-height: 1.8;
     }
 
     .contact-info-block a {
-      color: var(--gold-light);
+      color: var(--ink);
       text-decoration: none;
     }
 
@@ -460,11 +450,11 @@
     .hours-table tr td {
       padding: 0.4rem 0;
       font-size: 0.9rem;
-      color: var(--fog);
+      color: var(--ink);
     }
 
     .hours-table tr td:first-child {
-      color: var(--cream);
+      color: var(--ink);
       font-weight: 500;
       width: 140px;
     }
@@ -479,7 +469,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.8rem;
-      color: var(--fog);
+      color: var(--ink);
       font-family: 'Lato', serif;
       font-size: 0.9rem;
     }
@@ -488,7 +478,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--ink);
+      background: var(--off-white);
       padding: 2rem 4rem;
       display: flex;
       justify-content: space-between;
@@ -501,20 +491,20 @@
     .footer-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
-      color: var(--cream);
+      color: var(--ink);
     }
 
     .footer-logo span { color: var(--ink);}
 
     footer p {
       font-size: 0.78rem;
-      color: var(--fog);
+      color: var(--ink);
     }
 
     .footer-tagline {
       font-family: 'lato', cursive;
       font-size: 1rem;
-      color: var(--gold);
+      color: var(--ink);
     }
 
     /* ── SCROLL FADE ── */
@@ -546,7 +536,7 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: var(--ink);
+      background: var(--gold);
       border-radius: 2px;
       transition: transform 0.3s, opacity 0.3s;
     }
@@ -576,9 +566,9 @@
         flex-direction: column;
         gap: 0;
         width: 100%;
-        background: var(--rich-wood);
+        background: var(--tail-wind);
         margin-top: 0.8rem;
-        border-top: 1px solid rgba(196,124,43,0.2);
+        border-top: 1px solid var(--ink);
         padding: 0.5rem 0;
       }
 
@@ -590,7 +580,7 @@
         padding: 0.85rem 1.2rem;
         font-size: 0.95rem;
         letter-spacing: 0.1em;
-        border-bottom: 1px solid rgba(196,124,43,0.1);
+        border-bottom: 1px solid var(--ink);
       }
 
       .nav-links a::after { display: none; }
@@ -689,7 +679,7 @@
     <!-- ── COFFEE ── -->
     <div class="menu-category fade-in" style="grid-column: 1 / -1;">
       <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">☕ Coffee</h3>
-      <p style="font-size: 0.8rem; color: var(--black); margin-bottom: 1.8rem; font-style: 'Lato', sans-serif;">
+      <p style="font-size: 0.8rem; color: var(--ink); margin-bottom: 1.8rem; font-style: 'Lato', sans-serif;">
         All espresso-based drinks, brewed fresh to order
       </p>
 
@@ -816,7 +806,7 @@
     <!-- ── NON-COFFEE ── -->
     <div class="menu-category fade-in" style="grid-column: 1 / -1;">
       <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">🍵 Non-Coffee</h3>
-      <p style="font-size: 0.8rem; color: var(--bark); margin-bottom: 1.8rem; font-style: nunito;">
+      <p style="font-size: 0.8rem; color: var(--ink); margin-bottom: 1.8rem; font-style: nunito;">
         No espresso, all flavor — perfect for every kind of guest
       </p>
 
@@ -950,7 +940,7 @@
     <!-- ── BAKED & BITES ── -->
     <div class="menu-category fade-in" style="grid-column: 1 / -1;">
       <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">🥐 Baked & Bites</h3>
-      <p style="font-size: 0.8rem; color: var(--bark); margin-bottom: 1.8rem;">
+      <p style="font-size: 0.8rem; color: var(--ink); margin-bottom: 1.8rem;">
         Baked fresh, best paired with your drink of choice
       </p>
 
@@ -1057,7 +1047,7 @@
           <div class="contact-info-block fade-in">
             <h4>Get In Touch</h4>
             <p>
-              <a href="tel:+13125550192">(312) 555-0192</a><br>
+              Instagram: @midtowncoffee_<br>
               <a href="mailto:hello@midtowncoffee.com">hello@midtowncoffee.com</a>
             </p>
           </div>
