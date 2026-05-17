@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Midtown Coffee — Your Daily Fix</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@0,400;0,500;1,400&family=Caveat:wght@500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -14,12 +14,15 @@
       --rich-wood:   #2B1A0A;   /* nav, cards */
       --warm-wood:   #3D2410;   /* secondary surfaces */
       --aged-wood:   #5C3820;   /* subtle borders */
+      --off-white:   #FAF9F6;   /* lightest background */
+      --tail-wind:   #F6F7FA;   /* tail wind */
 
       /* ── Accents ── */
-      --gold:        #C47C2B;   /* primary accent */
+      --gold:        #E9E4D7;   /* primary accent */
       --gold-light:  #E8A84A;   /* hover/glow */
       --gold-muted:  #8C5830;   /* subdued gold */
-      --copper:      #A0522D;   /* complementary warm */
+      --copper:      #E9E4D7;   /* complementary warm */
+      --black:       #0D0804;   /* darkest, for text and details */
 
       /* ── Text & Surfaces ── */
       --cream:       #F5ECD7;   /* primary text on dark */
@@ -29,7 +32,7 @@
       --ink:         #0D0804;   /* darkest */
 
       /* ── Menu (light) ── */
-      --menu-bg:     #FBF5E6;
+      --menu-bg:     #E9E4D7;
       --menu-card:   #F5ECD7;
       --menu-border: #E8DCC8;
       --espresso:    #2C1A0E;
@@ -39,9 +42,9 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--dark-wood);
-      color: var(--cream);
-      font-family: 'Lora', Georgia, serif;
+      background-color: var(--off-white);
+      color: var(--off-white);
+      font-family: 'Lato', serif;
       overflow-x: hidden;
     }
 
@@ -64,38 +67,41 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 4rem;
-      background: var(--rich-wood);
-      backdrop-filter: blur(8px);
-      /* Warm gold-copper gradient border — blends into hero below */
-      border-bottom: 1px solid transparent;
+      padding: 1.5rem 2rem;
+      background: var(--tail-wind);
+      backdrop-filter: blur(100px);
+      /* Dark-black gradient border — blends into hero below */
+      border-bottom: 1.5px solid transparent;
       box-shadow:
-        0 1px 0 0 rgba(196,124,43,0.55),
-        0 2px 12px 0 rgba(196,124,43,0.12);
+        0 1px 0 0 rgb(0, 0, 0),
+        0 2px 12px 0 rgba(0, 0, 0, 0.171);
     }
 
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
-      color: var(--cream);
+      color: var(--ink);
       letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .nav-logo span {
-      color: var(--gold);
-      font-style: italic;
+      color: var(--ink);
+      font-family:'Lato', sans-serif;
+      font-size: 1.1rem;
     }
 
     .nav-links {
       display: flex;
       gap: 2.5rem;
       list-style: none;
+      font-size: 0.9rem;
     }
 
     .nav-links a {
-      font-family: 'Lora', serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.85rem;
-      color: var(--parchment);
+      color: var(--ink);
       text-decoration: none;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -108,11 +114,11 @@
       position: absolute;
       bottom: -4px; left: 0;
       width: 0; height: 1px;
-      background: var(--gold);
+      background: var(--ink);
       transition: width 0.3s;
     }
 
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--ink); }
     .nav-links a:hover::after { width: 100%; }
 
     /* ── HERO ── */
@@ -125,8 +131,8 @@
       padding: 10rem 4rem 6rem;
       position: relative;
       background:
-        radial-gradient(ellipse at 75% 50%, rgba(196,124,43,0.1) 0%, transparent 55%),
-        linear-gradient(160deg, var(--warm-wood) 0%, var(--rich-wood) 50%, var(--dark-wood) 100%);
+        radial-gradient(ellipse at 75% 50%, rgba(95, 93, 93, 0.253) 0%, transparent 25%),
+        linear-gradient(160deg, var(--tail-wind) 0%, var(--off-white) 50%, var(--off-white) 100%);
       overflow: hidden;
     }
 
@@ -156,10 +162,10 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      border: 2px solid rgba(196,124,43,0.5);
+      border: 2px solid var(--tail-wind);
       box-shadow:
-        0 0 0 6px rgba(196,124,43,0.08),
-        0 8px 40px rgba(0,0,0,0.5);
+        0 0 0 2.5px rgba(0, 0, 0, 0.747),
+        0 8px 40px rgba(95, 93, 93, 0.253);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -179,23 +185,24 @@
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Lato', serif;
       font-size: clamp(3.5rem, 8vw, 7rem);
-      color: var(--cream);
+      color: var(--ink);
       line-height: 1.05;
       font-weight: 700;
       max-width: 700px;
       position: relative;
       z-index: 2;
+      text-transform: uppercase;
     }
 
     .hero h1 em {
-      color: var(--gold);
-      font-style: italic;
+      color: var(--ink);
+      font-family: 'Lato', sans-serif;
     }
 
     .hero-sub {
-      font-family: 'Lora', serif;
+      font-family: 'Lato', sans-serif;
       font-size: 1.05rem;
       color: var(--parchment);
       opacity: 0;
@@ -205,6 +212,8 @@
       animation: fadeUp 1s ease forwards 0.6s;
       position: relative;
       z-index: 2;
+      text-transform: uppercase;
+      color: var(--ink);
     }
 
     .hero-cta {
@@ -213,7 +222,7 @@
       padding: 1rem 2.4rem;
       background: var(--gold);
       color: var(--ink);
-      font-family: 'Lora', serif;
+      font-family: 'Lato', serif;
       font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -232,15 +241,6 @@
       transform: translateY(-2px);
     }
 
-    /* Smooth wave into menu section */
-    .hero-divider {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 80px;
-      background: var(--menu-bg);
-      clip-path: ellipse(55% 100% at 50% 100%);
-    }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -250,9 +250,10 @@
     section { padding: 6rem 4rem; }
 
     .section-label {
-      font-family: 'Caveat', cursive;
+      font-family: 'Lato', sans-serif;
+      text-transform: uppercase;
       font-size: 1.1rem;
-      color: var(--gold);
+      color: var(--black);
       letter-spacing: 0.08em;
       display: block;
       margin-bottom: 0.6rem;
@@ -358,7 +359,7 @@
     .menu-item:hover { background: rgba(196,124,43,0.06); }
 
     .menu-item-name {
-      font-family: 'Lora', serif;
+      font-family: 'Lato', serif;
       font-size: 0.92rem;
       color: var(--espresso);
       font-weight: 500;
@@ -371,14 +372,11 @@
     }
 
     .menu-item-price {
-      font-family: 'Lora', serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.85rem;
-      color: var(--gold);
+      color: var(--black);
       white-space: nowrap;
       font-weight: 600;
-      background: rgba(196,124,43,0.1);
-      padding: 0.25rem 0.65rem;
-      border-radius: 100px;
     }
 
     .menu-dots { display: none; }
@@ -416,7 +414,6 @@
       transform: translate(-50%, -50%);
       white-space: nowrap;
       pointer-events: none;
-      font-style: italic;
     }
 
     .contact-inner {
@@ -437,7 +434,7 @@
     .contact-info-block { margin-bottom: 2rem; }
 
     .contact-info-block h4 {
-      font-family: 'Caveat', cursive;
+      font-family: 'Lato', sans-serif;
       font-size: 1rem;
       color: var(--gold);
       letter-spacing: 0.1em;
@@ -483,9 +480,8 @@
       justify-content: center;
       gap: 0.8rem;
       color: var(--fog);
-      font-family: 'Lora', serif;
+      font-family: 'Lato', serif;
       font-size: 0.9rem;
-      font-style: italic;
     }
 
     .contact-map-placeholder span { font-size: 2.5rem; }
@@ -508,7 +504,7 @@
       color: var(--cream);
     }
 
-    .footer-logo span { color: var(--gold); font-style: italic; }
+    .footer-logo span { color: var(--ink);}
 
     footer p {
       font-size: 0.78rem;
@@ -516,7 +512,7 @@
     }
 
     .footer-tagline {
-      font-family: 'Caveat', cursive;
+      font-family: 'lato', cursive;
       font-size: 1rem;
       color: var(--gold);
     }
@@ -610,6 +606,7 @@
         flex-direction: column;
         gap: 1.5rem;
         align-items: center;
+        font-family: 'Lato', sans-serif;
       }
 
       .hero-logo-placeholder {
@@ -680,134 +677,362 @@
   </section>
 
   <!-- MENU -->
-  <section id="menu">
-    <div class="menu-header fade-in">
-      <span class="section-label">What we brew</span>
-      <h2 class="section-title">The Menu</h2>
-      <div class="section-rule"></div>
+<section id="menu">
+  <div class="menu-header fade-in">
+    <span class="section-label">What we brew</span>
+    <h2 class="section-title">The Menu</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="menu-grid" style="max-width: 1100px; margin: 0 auto;">
+
+    <!-- ── COFFEE ── -->
+    <div class="menu-category fade-in" style="grid-column: 1 / -1;">
+      <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">☕ Coffee</h3>
+      <p style="font-size: 0.8rem; color: var(--black); margin-bottom: 1.8rem; font-style: 'Lato', sans-serif;">
+        All espresso-based drinks, brewed fresh to order
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+        <!-- Your Daily Fix -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Your Daily Fix</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Americano</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱120</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Cafe Latte</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱140</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Mocha</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱170</div>
+          </div>
+        </div>
+
+        <!-- Your Daily Favorites -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Your Daily Favorites</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Spanish Latte</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱160</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Caramel Macchiato</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱170</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Salted Caramel</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱170</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">White Mocha</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱170</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Cookie Butter</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱180</div>
+          </div>
+        </div>
+
+        <!-- Midtown Specials -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Midtown Specials</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Sea Salt Latte</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱170</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Spanish Oat</div>
+              <div class="menu-item-desc"></div>
+            </div>
+            <div class="menu-item-price">₱180</div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="menu-grid">
+    <!-- ── NON-COFFEE ── -->
+    <div class="menu-category fade-in" style="grid-column: 1 / -1;">
+      <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">🍵 Non-Coffee</h3>
+      <p style="font-size: 0.8rem; color: var(--bark); margin-bottom: 1.8rem; font-style: nunito;">
+        No espresso, all flavor — perfect for every kind of guest
+      </p>
 
-      <div class="menu-category fade-in">
-        <h3>Espresso Bar</h3>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Espresso</div>
-            <div class="menu-item-desc">Double shot, dark roast blend</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+        <!-- Matcha & Tea -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Matcha & Tea</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Matcha Latte</div>
+              <div class="menu-item-desc">Ceremonial grade, honey sweetened</div>
+            </div>
+            <div class="menu-item-price">₱160</div>
           </div>
-          <div class="menu-item-price">$3.50</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Cappuccino</div>
-            <div class="menu-item-desc">Silky foam, house whole milk</div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Iced Matcha</div>
+              <div class="menu-item-desc">Whisked matcha, milk, over ice</div>
+            </div>
+            <div class="menu-item-price">₱160</div>
           </div>
-          <div class="menu-item-price">$4.75</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Flat White</div>
-            <div class="menu-item-desc">Ristretto shots, velvety micro-foam</div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Hojicha Latte</div>
+              <div class="menu-item-desc">Roasted green tea, warm & earthy</div>
+            </div>
+            <div class="menu-item-price">₱155</div>
           </div>
-          <div class="menu-item-price">$5.00</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Latte</div>
-            <div class="menu-item-desc">Your choice of milk, latte art</div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Chamomile Honey</div>
+              <div class="menu-item-desc">Brewed chamomile, local honey, lemon</div>
+            </div>
+            <div class="menu-item-price">₱130</div>
           </div>
-          <div class="menu-item-price">$5.25</div>
         </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Cortado</div>
-            <div class="menu-item-desc">Equal parts espresso & warm milk</div>
+
+        <!-- Refreshers -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Refreshers</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Strawberry Lemonade</div>
+              <div class="menu-item-desc">Fresh squeezed, house strawberry syrup</div>
+            </div>
+            <div class="menu-item-price">₱130</div>
           </div>
-          <div class="menu-item-price">$4.50</div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Mango Calamansi Soda</div>
+              <div class="menu-item-desc">Sparkling, sweet-tangy local citrus</div>
+            </div>
+            <div class="menu-item-price">₱140</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Cucumber Mint Cooler</div>
+              <div class="menu-item-desc">Sparkling water, fresh cucumber, mint</div>
+            </div>
+            <div class="menu-item-price">₱130</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Coconut Pandan Shake</div>
+              <div class="menu-item-desc">Blended coconut milk, pandan syrup</div>
+            </div>
+            <div class="menu-item-price">₱150</div>
+          </div>
         </div>
+
+        <!-- Hot Non-Coffee -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Hot & Cozy</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Hot Chocolate</div>
+              <div class="menu-item-desc">Dark cocoa, steamed milk, whipped cream</div>
+            </div>
+            <div class="menu-item-price">₱150</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Turmeric Latte</div>
+              <div class="menu-item-desc">Golden milk, ginger, black pepper</div>
+            </div>
+            <div class="menu-item-price">₱145</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Salted Caramel Steamer</div>
+              <div class="menu-item-desc">Steamed milk, house caramel, sea salt</div>
+            </div>
+            <div class="menu-item-price">₱140</div>
+          </div>
+        </div>
+
       </div>
-
-      <div class="menu-category fade-in">
-        <h3>Cold Drinks</h3>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Cold Brew</div>
-            <div class="menu-item-desc">Steeped 18 hrs, smooth & bold</div>
-          </div>
-          <div class="menu-item-price">$5.50</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Iced Caramel Latte</div>
-            <div class="menu-item-desc">House caramel, oat milk</div>
-          </div>
-          <div class="menu-item-price">$6.00</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Shaken Espresso</div>
-            <div class="menu-item-desc">Brown sugar, cinnamon, ice</div>
-          </div>
-          <div class="menu-item-price">$5.75</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Matcha Latte</div>
-            <div class="menu-item-desc">Ceremonial grade, honey sweetened</div>
-          </div>
-          <div class="menu-item-price">$5.50</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Nitro Cold Brew</div>
-            <div class="menu-item-desc">Nitrogen-infused, on tap</div>
-          </div>
-          <div class="menu-item-price">$6.25</div>
-        </div>
-      </div>
-
-      <div class="menu-category fade-in">
-        <h3>Baked & Bites</h3>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Butter Croissant</div>
-            <div class="menu-item-desc">Flaky, baked fresh each morning</div>
-          </div>
-          <div class="menu-item-price">$3.75</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Banana Walnut Loaf</div>
-            <div class="menu-item-desc">Moist slice, maple glaze</div>
-          </div>
-          <div class="menu-item-price">$4.00</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Avocado Toast</div>
-            <div class="menu-item-desc">Sourdough, chili flake, sea salt</div>
-          </div>
-          <div class="menu-item-price">$8.50</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Cinnamon Roll</div>
-            <div class="menu-item-desc">Cream cheese frosting, warm</div>
-          </div>
-          <div class="menu-item-price">$4.50</div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Granola Parfait</div>
-            <div class="menu-item-desc">House granola, Greek yogurt, berries</div>
-          </div>
-          <div class="menu-item-price">$6.00</div>
-        </div>
-      </div>
-
     </div>
-  </section>
+
+    <!-- ── BAKED & BITES ── -->
+    <div class="menu-category fade-in" style="grid-column: 1 / -1;">
+      <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">🥐 Baked & Bites</h3>
+      <p style="font-size: 0.8rem; color: var(--bark); margin-bottom: 1.8rem;">
+        Baked fresh, best paired with your drink of choice
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+        <!-- Pastries -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Pastries</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Butter Croissant</div>
+              <div class="menu-item-desc">Flaky, baked fresh each morning</div>
+            </div>
+            <div class="menu-item-price">₱95</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Cinnamon Roll</div>
+              <div class="menu-item-desc">Cream cheese frosting, served warm</div>
+            </div>
+            <div class="menu-item-price">₱110</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Banana Walnut Loaf</div>
+              <div class="menu-item-desc">Moist slice, maple glaze</div>
+            </div>
+            <div class="menu-item-price">₱100</div>
+          </div>
+        </div>
+
+        <!-- Bites -->
+        <div>
+          <div style="
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--black);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed rgba(196,124,43,0.3);
+          ">Bites</div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Avocado Toast</div>
+              <div class="menu-item-desc">Sourdough, chili flake, sea salt</div>
+            </div>
+            <div class="menu-item-price">₱210</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Granola Parfait</div>
+              <div class="menu-item-desc">House granola, Greek yogurt, berries</div>
+            </div>
+            <div class="menu-item-price">₱150</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <div class="menu-item-name">Cheese & Ham Croissant</div>
+              <div class="menu-item-desc">Toasted, melted cheese, smoked ham</div>
+            </div>
+            <div class="menu-item-price">₱145</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- CONTACT -->
   <section id="contact">
